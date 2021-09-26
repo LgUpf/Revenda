@@ -1,0 +1,42 @@
+@extends('adminlte::page')
+
+@section('content')
+    <h3>Nova Revenda</h3>
+
+
+@if ($errors->any())
+<ul class="alert alert-danger">
+    @foreach ($errors->all() as $error)
+    <li>{{ $error}}</li>
+    @endforeach
+</ul>
+@endif
+
+    {!! Form::open(['route'=>'revendas.store']) !!}
+
+        <div class="form-group">
+            {!! Form::label('nome','Nome:') !!}
+            {!! Form::text('nome', null, ['class' => 'form-control', 'required']) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('telefone','Telefone:') !!}
+            {!! Form::text('telefone', null, ['class' => 'form-control', 'required']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('dt_fundada','Data de Criação da Revenda:') !!}
+            {!! Form::date('dt_fundada', null, ['class' => 'form-control', 'required']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('endereco','Endereço da Revenda:') !!}
+            {!! Form::text('endereco', null, ['class' => 'form-control', 'required']) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::submit('Criar Revenda',['class' => 'btn btn-primary']) !!}
+            {!! Form::reset('Limpar', ['class' => 'btn btn-default' ]) !!}
+        </div>
+
+
+    {!! Form::close() !!}
+ @stop
