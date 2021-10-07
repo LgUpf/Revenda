@@ -18,6 +18,28 @@ Route::group(['prefix'=>'revendas', 'where'=>['id'=>'[0-9]']], function() {
     Route::post('store',        ['as'=>'revendas.store',   'uses'=>'App\Http\Controllers\RevendasController@store']);
 
 });
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['prefix'=>'marcas', 'where'=>['id'=>'[0-9]']], function() {
+    Route::get('',             ['as'=>'marcas',         'uses'=>'App\Http\Controllers\MarcasController@index']);
+    Route::get('create',       ['as'=>'marcas.create',  'uses'=>'App\Http\Controllers\MarcasController@create']);
+    Route::get('{id}/destroy', ['as'=>'marcas.destroy', 'uses'=>'App\Http\Controllers\MarcasController@destroy']);
+    Route::get('{id}/edit',    ['as'=>'marcas.edit',    'uses'=>'App\Http\Controllers\MarcasController@edit']);
+    Route::put('{id}/update',  ['as'=>'marcas.update',  'uses'=>'App\Http\Controllers\MarcasController@update']);
+    Route::post('store',        ['as'=>'marcas.store',   'uses'=>'App\Http\Controllers\MarcasController@store']);
+
+});
+
+
+Route::group(['prefix'=>'carros', 'where'=>['id'=>'[0-9]']], function() {
+    Route::get('',             ['as'=>'carros',         'uses'=>'App\Http\Controllers\CarrosController@index']);
+    Route::get('create',       ['as'=>'carros.create',  'uses'=>'App\Http\Controllers\CarrosController@create']);
+    Route::get('{id}/destroy', ['as'=>'carros.destroy', 'uses'=>'App\Http\Controllers\CarrosController@destroy']);
+    Route::get('{id}/edit',    ['as'=>'carros.edit',    'uses'=>'App\Http\Controllers\CarrosController@edit']);
+    Route::put('{id}/update',  ['as'=>'carros.update',  'uses'=>'App\Http\Controllers\CarrosController@update']);
+    Route::post('store',        ['as'=>'carros.store',   'uses'=>'App\Http\Controllers\CarrosController@store']);
+
+});
+
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\RevendasController::class, 'index'])->name('revendas');

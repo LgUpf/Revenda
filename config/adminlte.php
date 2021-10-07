@@ -232,6 +232,16 @@ return [
             'url'         => 'revendas',
             'icon'        => 'far fa-fw fa-users',
         ],
+        [
+            'text'        => 'Marcas',
+            'url'         => 'marcas',
+            'icon'        => 'far fa-fw fa-users',
+        ],
+        [
+            'text'        => 'Carros',
+            'url'         => 'carros',
+            'icon'        => 'far fa-fw fa-car',
+        ],
         // [
         //     'type'         => 'fullscreen-widget',
         //     'topnav_right' => true,

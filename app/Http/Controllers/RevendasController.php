@@ -8,7 +8,7 @@ use App\http\Requests\RevendaRequest;
 class RevendasController extends Controller
 {
     public function index (){
-     $revendas = Revenda::orderBy('nome')->paginate(5);
+     $revendas = Revenda::orderBy('nome')->paginate(4);
        return view('revendas.index', ['revendas'=>$revendas]);
     }
     public function create (){
