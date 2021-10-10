@@ -7,9 +7,16 @@ use App\Models\Revenda;
 use App\http\Requests\RevendaRequest;
 class RevendasController extends Controller
 {
-    public function index (){
-     $revendas = Revenda::orderBy('nome')->paginate(4);
-       return view('revendas.index', ['revendas'=>$revendas]);
+    public function index (Request $filtro){
+        $filtragem = $filtro->get('desc_filtro');
+           if ($filtragem == null)
+               $revendas = Revenda::orderBy('nome')->paginate(4);
+           else
+               $revendas = Revenda::where('nome','like','%'.$filtragem.'%')
+                   ->orderBy("nome")
+                   ->paginate(3)
+                   ->setpath('revendas?desc_filtro='.$filtragem);
+                   return view('revendas.index', ['revendas'=>$revendas]);
     }
     public function create (){
         return view('revendas.create');

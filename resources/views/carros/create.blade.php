@@ -21,8 +21,8 @@
         <div class="form-group">
             {!! Form::label('marca_id','Marca:') !!}
             {!! Form::select('marca_id',
-                            \App\Model\Marca::orderBy('descricao')->pluck('descricao','id')->toArray(),
-                            null, ['class' => 'form-control', 'required']) !!}
+                    \App\Models\Marca::orderBy('descricao')->pluck('descricao','id')->toArray(),
+                    null, ['class' => 'form-control', 'required']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('ano','Ano do Veiculo:') !!}

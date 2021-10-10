@@ -19,7 +19,7 @@
         <div class="form-group">
             {!! Form::label('marca_id','Marca:') !!}
             {!! Form::select('marca_id',
-                            \App\Model\Marca::orderBy('descricao')->pluck('descricao','id')->toArray(),
+                             \App\Models\Marca::orderBy('descricao')->pluck('descricao','id')->toArray(),
                             $carro->marca_id, ['class' => 'form-control', 'required']) !!}
         </div>
 
@@ -59,5 +59,5 @@
     {!! Form::close() !!}
  @stop
  @section('table-delete')
- "revendas"
+ "carros"
  @endsection

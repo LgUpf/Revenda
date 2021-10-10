@@ -7,9 +7,16 @@ use App\Models\Carro;
 use App\http\Requests\CarroRequest;
 class CarrosController extends Controller
 {
-    public function index (){
-     $carros = Carro::orderBy('modelo')->paginate(4);
-       return view('carros.index', ['carros'=>$carros]);
+    public function index (Request $filtro){
+        $filtragem = $filtro->get('desc_filtro');
+       if ($filtragem == null)
+           $carros = Carro::orderBy('modelo')->paginate(3);
+       else
+           $carros = Carro::where('modelo','like','%'.$filtragem.'%')
+               ->orderBy("modelo")
+               ->paginate(3)
+               ->setpath('carros?desc_filtro='.$filtragem);
+     return view('carros.index', ['carros'=>$carros]);
     }
     public function create (){
         return view('carros.create');
