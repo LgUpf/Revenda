@@ -39,7 +39,18 @@ Route::group(['prefix'=>'carros', 'where'=>['id'=>'[0-9]']], function() {
     Route::post('store',        ['as'=>'carros.store',   'uses'=>'App\Http\Controllers\CarrosController@store']);
 
 });
+
+Route::group(['prefix'=>'modelos', 'where'=>['id'=>'[0-9]']], function() {
+    Route::any('',             ['as'=>'modelos',         'uses'=>'App\Http\Controllers\ModelosController@index']);
+    Route::get('create',       ['as'=>'modelos.create',  'uses'=>'App\Http\Controllers\ModelosController@create']);
+    Route::get('{id}/destroy', ['as'=>'modelos.destroy', 'uses'=>'App\Http\Controllers\ModelosController@destroy']);
+    Route::get('{id}/edit',    ['as'=>'modelos.edit',    'uses'=>'App\Http\Controllers\ModelosController@edit']);
+    Route::put('{id}/update',  ['as'=>'modelos.update',  'uses'=>'App\Http\Controllers\ModelosController@update']);
+    Route::post('store',        ['as'=>'modelos.store',   'uses'=>'App\Http\Controllers\ModelosController@store']);
+
+});
+
 });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\RevendasController::class, 'index'])->name('revendas');
+Route::any('/home', [App\Http\Controllers\RevendasController::class, 'index'])->name('revendas');

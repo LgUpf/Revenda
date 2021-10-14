@@ -8,10 +8,17 @@ use App\http\Requests\MarcaRequest;
 
 class MarcasController extends Controller
 {
-    public function index (){
-        $marcas = Marca::orderBy('descricao')->paginate(5);
-          return view('marcas.index', ['marcas'=>$marcas]);
-       }
+       public function index (Request $filtro){
+        $filtragem = $filtro->get('desc_filtro');
+           if ($filtragem == null)
+               $marcas = Marca::orderBy('descricao')->paginate(4);
+           else
+               $marcas = Marca::where('descricao','like','%'.$filtragem.'%')
+                   ->orderBy("descricao")
+                   ->paginate(3)
+                   ->setpath('marcas?desc_filtro='.$filtragem);
+                   return view('marcas.index', ['marcas'=>$marcas]);
+    }
        public function create (){
            return view('marcas.create');
        }

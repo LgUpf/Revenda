@@ -228,19 +228,24 @@ return [
         ['header' =>'REVENDAS'],
         // Navbar items:
         [
-            'text'        => 'Listagem',
+            'text'        => 'Listagem de Revendas',
             'url'         => 'revendas',
-            'icon'        => 'far fa-fw fa-users',
+            'icon'        => 'fas fa-car-side',
         ],
         [
             'text'        => 'Marcas',
             'url'         => 'marcas',
-            'icon'        => 'far fa-fw fa-users',
+            'icon'        => 'fab fa-bandcamp',
         ],
         [
             'text'        => 'Carros',
             'url'         => 'carros',
-            'icon'        => 'far fa-fw fa-car',
+            'icon'        => 'fas fa-truck-pickup',
+        ],
+        [
+            'text'        => 'Modelos',
+            'url'         => 'modelos',
+            'icon'        => 'far fa-fw fa-flag',
         ],
         // [
         //     'type'         => 'fullscreen-widget',

@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
-    <h3>Nova Marca</h3>
+    <h3>Novos Modelos</h3>
 
 
 @if ($errors->any())
@@ -12,18 +12,21 @@
 </ul>
 @endif
 
-    {!! Form::open(['route'=>'marcas.store']) !!}
+    {!! Form::open(['route'=>'modelos.store']) !!}
 
         <div class="form-group">
             {!! Form::label('descricao','descrição:') !!}
             {!! Form::text('descricao', null, ['class' => 'form-control', 'required']) !!}
         </div>
-        <div class="form-group">
-            {!! Form::label('modelo_id','Modelo:') !!}
-            {!! Form::select('modelo_id',
-                    \App\Models\Modelo::orderBy('descricao')->pluck('descricao','id')->toArray(),
-                    null, ['class' => 'form-control', 'required']) !!}
-        </div>
+        {{-- <div class="form-group">
+			{!! Form::label('modelo', 'Modelo:') !!}
+			{!! Form::select('modelo',
+							 array( 'ONIX'=>'Teste',
+							 		'FORD'=>'Americano',
+							 		'KIA'=>'Canadense',
+							 		'KKKK'=>'LALALA'),
+							 'ONIX', ['class'=>'form-control', 'required']) !!}
+		</div> --}}
         <div class="form-group">
             {!! Form::submit('Criar Marca',['class' => 'btn btn-primary']) !!}
             {!! Form::reset('Limpar', ['class' => 'btn btn-default' ]) !!}

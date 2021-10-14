@@ -32,7 +32,15 @@
 				<tr>
 					<td>{{ $carro->modelo }}</td>
                     <td>{{ Carbon\Carbon::parse($carro->ano)->format('m/Y') }}</td>
-                    {{-- <td>{{ $carro->marca->descricao }}</td> --}}
+                    @if (isset( $carro->marca->descricao))
+                            <td>
+                               {{ $carro->marca->descricao }}
+                            </td>
+                    @else
+                    <td>-
+                    </td>
+                    @endif
+
                     <td>{{ $carro->km }}</td>
                     <td>{{ $carro->cambio }}</td>
                     <td>{{ $carro->carroceria}}</td>

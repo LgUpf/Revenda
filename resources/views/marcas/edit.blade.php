@@ -14,7 +14,14 @@
 
     <div class="form-group">
         {!! Form::label('descricao','descrição:') !!}
-        {!! Form::text('descricao', null, ['class' => 'form-control', 'required']) !!}
+        {!! Form::text('descricao',$marca->descricao, ['class' => 'form-control', 'required']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('modelo_id','Modelo:') !!}
+        {!! Form::select('modelo_id',
+                         \App\Models\Modelo::orderBy('descricao')->pluck('descricao','id')->toArray(),
+                        $marca->modelo_id, ['class' => 'form-control', 'required']) !!}
     </div>
     <div class="form-group">
         {!! Form::submit('Editando Marca',['class' => 'btn btn-primary']) !!}

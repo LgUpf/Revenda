@@ -1,9 +1,9 @@
 @extends('layouts.default')
 
 @section('content')
-	<h1>Revendas</h1>
+	<h1>Modelos</h1>
 
-    {!! Form::open(['name'=>'form_revenda', 'route'=>'revendas']) !!}
+    {!! Form::open(['name'=>'form_modelos', 'route'=>'modelos']) !!}
     <div class="sidebar-form">
       <div class="input-group">
         <input type="text" name="desc_filtro" class="form-control" style="width:80% !important;" placeholder="Pesquisa...">
@@ -14,31 +14,30 @@
     </div>
   {!! Form::close() !!}
 
+
 	<table class="table table-stripe table-bordered table-hover">
 		<thead>
-			<th>Nome</th>
-			<th>Data de Criação da Revenda</th>
+			<th>Descrição</th>
+            {{-- <th>Modelos</th> --}}
 			<th>Ações</th>
 		</thead>
 
 		<tbody>
-			@foreach($revendas as $revenda)
+			@foreach($modelos as $modelo)
 				<tr>
-					<td>{{ $revenda->nome }}</td>
-					<td>{{ Carbon\Carbon::parse($revenda->dt_fundada)->format('d/m/Y') }}</td>
-
+					<td>{{ $modelo->descricao }}</td>
 					<td>
-						<a href="{{ route('revendas.edit',    ['id'=>$revenda->id]) }}" class="btn-sm btn-success">Editar</a>
-						<a href="#" onclick="return ConfirmaExclusao({{$revenda->id}})"  class="btn-sm btn-danger">Remover</a>
+						<a href="{{ route('modelos.edit',    ['id'=>$modelo->id]) }}" class="btn-sm btn-success">Editar</a>
+						<a href="#" onclick="return ConfirmaExclusao({{$modelo->id}})"  class="btn-sm btn-danger">Remover</a>
 					</td>
 				</tr>
 			@endforeach
 		</tbody>
 	</table>
-    {{ $revendas->links('pagination::bootstrap-4')   }}
-	<a href="{{ route('revendas.create', []) }}" class="btn btn-info">Adicionar</a>
+    {{ $modelos->links('pagination::bootstrap-4')   }}
+	<a href="{{ route('modelos.create', []) }}" class="btn btn-info">Adicionar</a>
 @stop
 
 @section('table-delete')
-"revendas"
+"modelos"
 @endsection
