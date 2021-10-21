@@ -14,10 +14,24 @@
 
     {!! Form::open(['route'=>'carros.store']) !!}
 
-        <div class="form-group">
+
+    <div class="form-group">
+        {!! Form::label('modelo_id','Modelo:') !!}
+        {!! Form::select('modelo_id',
+                \App\Models\Modelo::orderBy('descricao')->pluck('descricao','id')->toArray(),
+                null, ['class' => 'form-control', 'required']) !!}
+    </div>
+        {{-- <div class="form-group">
             {!! Form::label('modelo','Modelo:') !!}
             {!! Form::text('modelo', null, ['class' => 'form-control', 'required']) !!}
-        </div>
+        </div> --}}
+{{--
+        <div class="form-group">
+            {!! Form::label('modelo_id','Modelo:') !!}
+            {!! Form::select('modelo_id',
+                    \App\Models\Modelo::orderBy('descricao')->pluck('descricao','id')->toArray(),
+                    null, ['class' => 'form-control']) !!}
+        </div> --}}
         <div class="form-group">
             {!! Form::label('marca_id','Marca:') !!}
             {!! Form::select('marca_id',

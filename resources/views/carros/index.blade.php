@@ -30,7 +30,7 @@
 		<tbody>
 			@foreach($carros as $carro)
 				<tr>
-					<td>{{ $carro->modelo }}</td>
+					<td>{{ $carro->modelo->descricao }}</td>
                     <td>{{ Carbon\Carbon::parse($carro->ano)->format('m/Y') }}</td>
                     @if (isset( $carro->marca->descricao))
                             <td>

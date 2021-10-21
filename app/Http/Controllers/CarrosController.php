@@ -10,10 +10,10 @@ class CarrosController extends Controller
     public function index (Request $filtro){
         $filtragem = $filtro->get('desc_filtro');
        if ($filtragem == null)
-           $carros = Carro::orderBy('modelo')->paginate(3);
+           $carros = Carro::orderBy('modelo_id')->paginate(3);
        else
-           $carros = Carro::where('modelo','like','%'.$filtragem.'%')
-               ->orderBy("modelo")
+           $carros = Carro::where('modelo_id','like','%'.$filtragem.'%')
+               ->orderBy("modelo_id")
                ->paginate(3)
                ->setpath('carros?desc_filtro='.$filtragem);
      return view('carros.index', ['carros'=>$carros]);
@@ -28,8 +28,16 @@ class CarrosController extends Controller
 
     }
     public function destroy($id){
-        Carro::find($id)->delete();
-        return redirect()->route('carros');
+        try {
+		    Carro::find($id)->delete();
+			$ret = array('status'=>200, 'msg'=>"null");
+		} catch (\Illuminate\Database\QueryException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		}
+		catch (\PDOException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		}
+		return $ret;
     }
     public function edit($id){
         $carro = Carro::find($id);

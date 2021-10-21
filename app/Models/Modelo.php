@@ -13,5 +13,8 @@ class Modelo extends Model
     public function marcas() {
         return $this->hashMany("App\Models\Marca");
     }
+    public function carros() {
+        return $this->hashMany("App\Models\Carro");
+    }
 
 }

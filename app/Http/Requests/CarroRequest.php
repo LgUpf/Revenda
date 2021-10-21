@@ -24,7 +24,7 @@ class CarroRequest extends FormRequest
     public function rules()
     {
         return [
-           'modelo' =>'required',
+           'modelo_id' =>'required',
            'marca_id' =>'required',
            'ano' =>'date',
            'km' =>'required',
