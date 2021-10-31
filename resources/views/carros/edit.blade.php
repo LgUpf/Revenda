@@ -12,10 +12,12 @@
 @endif
     {!! Form::open(['route'=>["carros.update",'id'=>$carro->id], 'method'=>'put']) !!}
 
-        <div class="form-group">
-            {!! Form::label('modelo','Modelo:') !!}
-            {!! Form::text('modelo', $carro->modelo, ['class' => 'form-control', 'required']) !!}
-        </div>
+    <div class="form-group">
+        {!! Form::label('modelo_id','Modelo:') !!}
+        {!! Form::select('modelo_id',
+                \App\Models\Modelo::orderBy('descricao')->pluck('descricao','id')->toArray(),
+         $carro->modelo_id, ['class' => 'form-control', 'required']) !!}
+    </div>
         <div class="form-group">
             {!! Form::label('marca_id','Marca:') !!}
             {!! Form::select('marca_id',
