@@ -22,8 +22,5 @@ class MarcaSeeder extends Seeder
         Marca::create(['descricao'=>'Chevrolet']);
         Marca::create(['descricao'=>'Kia']);
         Marca::create(['descricao'=>'Fiat']);
-        Marca::create(['descricao'=>'Jaguar']);
-        Marca::create(['descricao'=>'Land Rover']);
-        Marca::create(['descricao'=>'Maserati']);
     }
 }

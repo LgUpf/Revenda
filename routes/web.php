@@ -50,6 +50,13 @@ Route::group(['prefix'=>'modelos', 'where'=>['id'=>'[0-9]']], function() {
 
 });
 
+
+Route::group(['prefix'=>'vendas', 'where'=>['id'=>'[0-9]']], function() {
+    Route::get('',             ['as'=>'vendas',         'uses'=>'App\Http\Controllers\VendasController@index']);
+    Route::get('create',       ['as'=>'vendas.create',  'uses'=>'App\Http\Controllers\VendasController@create']);
+    Route::post('store',       ['as'=>'vendas.store',   'uses'=>'App\Http\Controllers\VendasController@store']);
+});
+
 });
 
 Auth::routes();

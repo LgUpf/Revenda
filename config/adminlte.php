@@ -247,6 +247,11 @@ return [
             'url'         => 'modelos',
             'icon'        => 'far fa-fw fa-flag',
         ],
+        [
+            'text'        => 'Vendas',
+            'url'         => 'vendas',
+            'icon'        => 'far fa-fw poll-h',
+        ],
         // [
         //     'type'         => 'fullscreen-widget',
         //     'topnav_right' => true,
