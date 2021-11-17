@@ -18,7 +18,7 @@ class CreateVendaCarrosTable extends Migration
             $table->bigInteger('venda_id')->unsigned()->nullable();
             $table->foreign('venda_id')->references('id')->on('vendas');
             $table->bigInteger('carro_id')->unsigned()->nullable();
-            $table->foreign('carro_id')->references('id')->on('carros');
+            $table->foreign('carro_id')->references('id')->on('modelos');
             $table->timestamps();
 
         });

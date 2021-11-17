@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Venda;
+use App\Models\VendaCarro;
 
 class VendasController extends Controller
 {
@@ -13,11 +14,13 @@ class VendasController extends Controller
 
     public function store(Request $request){
         $venda = Venda::create([
-                            'modelo' => $request->get('modelo'),
+                            'nome' => $request->get('nome'),
                             'valor' => $request->get('valor')
                         ]);
 
         $carros = $request->carros;
+
+        //  dd($carros);
         foreach($carros as $a => $value) {
             VendaCarro::create([
                             'venda_id' => $venda->id,
@@ -29,8 +32,14 @@ class VendasController extends Controller
     }
 
     public function index(){
-        $vendas = Venda::all();
+        $vendas = Venda::orderBy('nome')->paginate(4);
         return view('vendas.index',['vendas'=>$vendas]);
+    }
+
+    
+    public function destroy($id){
+        Venda::find($id)->delete();
+        return redirect()->route('vendas');
     }
 
 }

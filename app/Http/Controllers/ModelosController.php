@@ -32,8 +32,8 @@ class ModelosController extends Controller
         Modelo::find($id)->delete();
         return redirect()->route('modelos');
     }
-    public function edit($id){
-        $modelo = Modelo::find($id);
+    public function edit(Request $request){
+        $modelo = Modelo::find(\Crypt::decrypt($request->get('id')));
         return view('modelos.edit', compact('modelo'));
     }
 

@@ -31,11 +31,10 @@ class RevendasController extends Controller
         Revenda::find($id)->delete();
         return redirect()->route('revendas');
     }
-    public function edit($id){
-        $revenda = Revenda::find($id);
+    public function edit(Request $request){
+        $revenda = Revenda::find(\Crypt::decrypt($request->get('id')));
         return view('revendas.edit', compact('revenda'));
     }
-
     public function update(RevendaRequest $request, $id){
         Revenda::find($id)->update($request->all());
         return redirect()->route('revendas');

@@ -36,7 +36,7 @@
                      </td>
                      @endif
 					<td>
-						<a href="{{ route('marcas.edit',    ['id'=>$marca->id]) }}" class="btn-sm btn-success">Editar</a>
+            <a href="{{ route('marcas.edit',   ['id'=>\Crypt::encrypt($marca->id)])  }}" class="btn-sm btn-success">Editar</a>
 						<a href="#" onclick="return ConfirmaExclusao({{$marca->id}})"  class="btn-sm btn-danger">Remover</a>
 					</td>
 				</tr>

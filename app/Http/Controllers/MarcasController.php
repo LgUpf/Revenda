@@ -32,11 +32,10 @@ class MarcasController extends Controller
            Marca::find($id)->delete();
            return redirect()->route('marcas');
        }
-       public function edit($id){
-           $marca = Marca::find($id);
-           return view('marcas.edit', compact('marca'));
-       }
-
+       public function edit(Request $request){
+        $marca = Marca::find(\Crypt::decrypt($request->get('id')));
+        return view('marcas.edit', compact('marca'));
+        }
        public function update(MarcaRequest $request, $id){
            Marca::find($id)->update($request->all());
            return redirect()->route('marcas');

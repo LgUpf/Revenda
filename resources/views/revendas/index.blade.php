@@ -28,7 +28,7 @@
 					<td>{{ Carbon\Carbon::parse($revenda->dt_fundada)->format('d/m/Y') }}</td>
 
 					<td>
-						<a href="{{ route('revendas.edit',    ['id'=>$revenda->id]) }}" class="btn-sm btn-success">Editar</a>
+						<a href="{{ route('revendas.edit',   ['id'=>\Crypt::encrypt($revenda->id)])  }}" class="btn-sm btn-success">Editar</a>
 						<a href="#" onclick="return ConfirmaExclusao({{$revenda->id}})"  class="btn-sm btn-danger">Remover</a>
 					</td>
 				</tr>

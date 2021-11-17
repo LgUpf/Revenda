@@ -245,12 +245,12 @@ return [
         [
             'text'        => 'Modelos',
             'url'         => 'modelos',
-            'icon'        => 'far fa-fw fa-flag',
+            'icon'        => 'fas fa-people-carry',
         ],
         [
             'text'        => 'Vendas',
             'url'         => 'vendas',
-            'icon'        => 'far fa-fw poll-h',
+            'icon'        => 'fas fa-check-square',
         ],
         // [
         //     'type'         => 'fullscreen-widget',

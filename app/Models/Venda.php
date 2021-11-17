@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Venda extends Model
 {
     protected $table = "vendas";
-    protected $fillable = ['modelo', 'valor'];
+    protected $fillable = ['nome', 'valor'];
+
+    public function carros() {
+        return $this->hasMany("App\Models\VendaCarro");
+    }
 
 }
