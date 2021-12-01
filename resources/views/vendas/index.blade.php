@@ -10,7 +10,6 @@
             <th>Venda</th>
             <th>Valor</th>
             <th>Carros</th>
-            <th>Ações</th>
         </tr>
     </thead>
 
@@ -27,7 +26,7 @@
 
                     <td>
                       {{-- <a href="{{ route('vendas.create', [])  }}" class="btn btn-info">Adicionar</a> --}}
-                      <a href="#" onclick="return ConfirmaExclusao({{$venda->id}})" class="btn-sm btn-danger">Remover</a>
+                      {{-- <a href="#" onclick="return ConfirmaExclusao({{$venda->id}})" class="btn-sm btn-danger">Remover</a> --}}
                     </td>
                  </tr>
        @endforeach

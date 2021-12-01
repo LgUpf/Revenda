@@ -36,10 +36,5 @@ class VendasController extends Controller
         return view('vendas.index',['vendas'=>$vendas]);
     }
 
-    
-    public function destroy($id){
-        Venda::find($id)->delete();
-        return redirect()->route('vendas');
-    }
 
 }
